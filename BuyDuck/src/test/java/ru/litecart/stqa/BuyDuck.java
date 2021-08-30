@@ -53,7 +53,7 @@ public class BuyDuck {
 
         WebElement cart = driver.findElementByXPath("//*[@id='box-product']/div[2]/div[2]/div[5]/form/table/tbody/tr/td/button");
         cart.sendKeys(Keys.ENTER);
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         WebElement checkout = driver.findElementByXPath("//*[@id='cart']/a[3]");
         checkout.sendKeys(Keys.ENTER);
