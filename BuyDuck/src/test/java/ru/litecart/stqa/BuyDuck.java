@@ -57,7 +57,7 @@ public class BuyDuck {
 
         WebElement checkout = driver.findElementByXPath("//*[@id='cart']/a[3]");
         checkout.sendKeys(Keys.ENTER);
-        Thread.sleep(500);
+        Thread.sleep(1000);
 
         WebElement confirmOrd = driver.findElementByXPath("//*[@id='order_confirmation-wrapper']/form/div[2]/p/button");
         confirmOrd.sendKeys(Keys.ENTER);
