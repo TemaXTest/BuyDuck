@@ -45,7 +45,7 @@ public class BuyDuck {
         WebElement create = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[9]/td/button");
         create.sendKeys(Keys.ENTER);
 
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         WebElement duck = driver.findElementByXPath("//*[@id='box-most-popular']/div/ul/li[2]/a[1]");
         duck.sendKeys(Keys.ENTER);
