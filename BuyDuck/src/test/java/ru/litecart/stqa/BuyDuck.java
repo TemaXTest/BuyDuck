@@ -1,5 +1,6 @@
 package ru.litecart.stqa;
 
+import net.andreinc.mockneat.MockNeat;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -7,13 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BuyDuck {
 
+
     @Test
     public void buyDuck() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
 
         driver.get("https://litecart.stqa.ru/ru/create_account");
+        Thread.sleep(1000);
 
         WebElement firstName = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[2]/td[1]/input");
         firstName.sendKeys("Dud");
@@ -24,14 +27,21 @@ public class BuyDuck {
         WebElement adress = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[3]/td[1]/input");
        adress.sendKeys("Kukushkino 5");
 
+        Thread.sleep(1000);
+
         WebElement post = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[4]/td[1]/input");
         post.sendKeys("375357");
 
         WebElement city = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[4]/td[2]/input");
         city.sendKeys("Jitomir");
 
+        MockNeat mock = MockNeat.threadLocal();
+        String corpEmail = mock.emails().domain("startup.com").val();
+
         WebElement mail = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[6]/td[1]/input");
-        mail.sendKeys("sssobaka@mail.ru");
+        mail.sendKeys(corpEmail);
+
+        Thread.sleep(1000);
 
         WebElement phone = driver.findElementByXPath("//*[@id='create-account']/div/form/table/tbody/tr[6]/td[2]/input");
         phone.sendKeys("89056674314");
